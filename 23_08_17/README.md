@@ -154,7 +154,7 @@ git pull origin main
 
 <br>
 
-## :pushpin: Fork
+# :pushpin: Fork
 1. Fork 대상 저장소 찾기
     - 복제하고자 하는 원격 저장소(프로젝트)를 찾습니다. 이는 다른 사람이 생성한 프로젝트일 수 있습니다.
 
@@ -185,8 +185,8 @@ git pull origin main
 
 ---
 
-## :pushpin: 기타 명령어
-### git add를 취소할 경우
+# :pushpin: 기타 명령어
+## git add를 취소할 경우
 ```bash
 git reset
 ```
@@ -194,7 +194,7 @@ git reset
     
 <br>
 
-### 커밋 메시지를 변경하는 경우
+## 커밋 메시지를 변경하는 경우
 ```bash
 git commit --amend
 ```
@@ -206,7 +206,7 @@ git commit --amend
 
 <br>
 
-### 커밋을 취소하는 경우
+## 커밋을 취소하는 경우
 ```bash
 git reset HEAD~ #최근 커밋 취소하기
 git reset <commit> #특정 커밋 취소하기
