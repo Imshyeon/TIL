@@ -1,13 +1,18 @@
 # :pushpin: 이전 내용 간단 복습
 ##  프로젝트 시작할 때 
+```bash
 git init
+```
+
 * git init하면 (main)으로 확인할 수 있음
 
 <br>
 
 ## 버전 기록할 때
+```bash
 git add .
 git commit -m '커밋메시지'
+```
 
 * git status로 파일 상태 확인 해보기 
 * git log로 커밋 확인하기
@@ -15,15 +20,25 @@ git commit -m '커밋메시지'
 <br>
 
 ## 원격저장소 최초 설정할 때
+```bash
 git remote add origin url
+```
 
 <br>
 
-## 원격저장소에 업데이트
+## 원격저장소 활용
+### push
 git push origin main
 
+- `origin` : 원격저장소의 이름
+- `main` : 브랜치의 이름
 
 * 참고 : github.io repository 만들고 그 안에 html이나 css를 넣어서 github에서 제공해주는 서버를 이용할 수 있다.*
+
+### pull
+```bash
+git pull origin main
+```
 
 <br>
 
@@ -40,7 +55,7 @@ git push origin main
     - 현재 어떤 브랜치에 있는지도 확인할 수 있습니다.
 2. `git branch <branch-name>`
     - 새로운 브랜치를 생성합니다.
-    - <branch-name>에 새로운 브랜치의 이름을 입력합니다.
+    - `<branch-name>`에 새로운 브랜치의 이름을 입력합니다.
 3. `git branch -d <branch-name>`
     - 브랜치를 삭제합니다.
     - -d 옵션은 브랜치를 삭제할 때 사용합니다.
@@ -52,18 +67,18 @@ git push origin main
     - -m 옵션 다음에 새로운 브랜치 이름을 입력합니다.
 6. `git checkout <branch-name>`
     - 다른 브랜치로 전환합니다.
-    - <branch-name>에 전환하고자 하는 브랜치의 이름을 입력합니다.
+    - `<branch-name>`에 전환하고자 하는 브랜치의 이름을 입력합니다.
 7. `git checkout -b <new-branch-name>`
     - 새로운 브랜치를 생성하고 해당 브랜치로 전환합니다.
     - -b 옵션 다음에 새로운 브랜치 이름을 입력합니다.
 8. `git merge <branch-name>`
     - 다른 브랜치를 현재 브랜치로 병합합니다.
-    - <branch-name>은 병합하고자 하는 브랜치의 이름입니다.
+    - `<branch-name>`은 병합하고자 하는 브랜치의 이름입니다.
 9. `git rebase <branch-name>`
-    - 현재 브랜치를 <branch-name> 브랜치의 최신 커밋 위로 재배치합니다.
+    - 현재 브랜치를 `<branch-name>` 브랜치의 최신 커밋 위로 재배치합니다.
 10. `git cherry-pick <commit>`
     - 다른 브랜치의 특정 커밋을 현재 브랜치로 가져옵니다.
-    - <commit>에 가져올 커밋의 해시값을 입력합니다.
+    - `<commit>`에 가져올 커밋의 해시값을 입력합니다.
 
 <br>
 
@@ -139,7 +154,7 @@ git push origin main
 
 <br>
 
-## Fork
+## :pushpin: Fork
 1. Fork 대상 저장소 찾기
     - 복제하고자 하는 원격 저장소(프로젝트)를 찾습니다. 이는 다른 사람이 생성한 프로젝트일 수 있습니다.
 
@@ -167,3 +182,33 @@ git push origin main
 
 9. PR 병합(Merge)
     - 원본 프로젝트 관리자가 PR을 검토하고 승인하면, PR을 병합(Merge)하여 변경 사항을 원본 프로젝트에 반영합니다.
+
+---
+
+## :pushpin: 기타 명령어
+### git add를 취소할 경우
+```bash
+git reset
+```
+- `git reset` 단독사용하면 스테이징 영역에 추가한 변경내용 취소, 변경 내용은 워킹 디렉토리로 되돌아가며 커밋에는 반영되지 않는다.
+    
+<br>
+
+### 커밋 메시지를 변경하는 경우
+```bash
+git commit --amend
+```
+- 위의 명령어를 실행하면, 이전 커밋 메시지로 수정할 수 있는 텍스트 에디터가 열린다. 수정, 변경 후 편집기를 종료하면 해당 커밋의 메시지가 종료된다.
+    - 수정 시작 : 아무 키나 누르면 수정 시작
+    - 종료 방법 : `ESC버튼 -> :wq`
+- 이미 공유된 커밋 메시지를 변경하는 것은 신중할 필요가 있다.. 잘못하면 merge conflict가 발생!
+
+
+<br>
+
+### 커밋을 취소하는 경우
+```bash
+git reset HEAD~ #최근 커밋 취소하기
+git reset <commit> #특정 커밋 취소하기
+git resuet <commit> --hard # --hard 모드 사용하면 해당 커밋 이후의 변경내용까지 삭제된다. 워킹디렉토리까지 해당 커밋 상태로 되돌아가니 주의하자.
+```
