@@ -199,7 +199,10 @@ git pull origin main
 # :pushpin: 기타 명령어
 ## git add를 취소할 경우
 ```bash
-git reset
+git restore --staged <file>
+
+#ex
+git restore .
 ```
 - `git reset` 단독사용하면 스테이징 영역에 추가한 변경내용 취소, 변경 내용은 워킹 디렉토리로 되돌아가며 커밋에는 반영되지 않는다.
     
