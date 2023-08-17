@@ -9,7 +9,7 @@
 :rocket:[기타 명령어](#pushpin-기타-명령어-custom-id)
 
 
-# :pushpin: 이전 내용 간단 복습 {#custom-id}
+# :pushpin: 이전 내용 간단 복습
 ##  프로젝트 시작할 때 
 ```bash
 git init
@@ -57,7 +57,7 @@ git pull origin main
 
 <br>
 
-# :pushpin: Branch {#custom-id}
+# :pushpin: Branch
     독립적인 작업흐름을 만들고 관리
 
 ## 1. 명령어
@@ -165,7 +165,7 @@ git pull origin main
 
 <br>
 
-# :pushpin: Fork {#custom-id}
+# :pushpin: Fork
 1. Fork 대상 저장소 찾기
     - 복제하고자 하는 원격 저장소(프로젝트)를 찾습니다. 이는 다른 사람이 생성한 프로젝트일 수 있습니다.
 
@@ -196,7 +196,7 @@ git pull origin main
 
 ---
 
-# :pushpin: 기타 명령어 {#custom-id}
+# :pushpin: 기타 명령어
 ## git add를 취소할 경우
 ```bash
 git reset
