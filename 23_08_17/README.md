@@ -1,12 +1,12 @@
 **목차**
 
-:rocket:[이전 내용 간단 복습](#pushpin-이전-내용-간단-복습-custom-id)
+:rocket:[이전 내용 간단 복습](#pushpin-이전-내용-간단-복습)
 
-:rocket:[Branch](#pushpin-branch-custom-id)
+:rocket:[Branch](#pushpin-branch)
 
-:rocket:[Fork](#pushpin-fork-custom-idk)
+:rocket:[Fork](#pushpin-fork)
 
-:rocket:[기타 명령어](#pushpin-기타-명령어-custom-id)
+:rocket:[기타 명령어](#pushpin-기타-명령어)
 
 
 # :pushpin: 이전 내용 간단 복습
@@ -165,7 +165,7 @@ git pull origin main
 
 <br>
 
-# :pushpin: Fork
+# :pushpin: Fork 
 1. Fork 대상 저장소 찾기
     - 복제하고자 하는 원격 저장소(프로젝트)를 찾습니다. 이는 다른 사람이 생성한 프로젝트일 수 있습니다.
 
