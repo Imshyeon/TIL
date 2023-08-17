@@ -227,3 +227,6 @@ git reset HEAD~ #최근 커밋 취소하기
 git reset <commit> #특정 커밋 취소하기
 git resuet <commit> --hard # --hard 모드 사용하면 해당 커밋 이후의 변경내용까지 삭제된다. 워킹디렉토리까지 해당 커밋 상태로 되돌아가니 주의하자.
 ```
+
+## 추가로 더 찾아볼 것
+1. `git revert`
