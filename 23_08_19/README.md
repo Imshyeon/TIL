@@ -3,7 +3,7 @@
 1. [간단한 코드 설명](#1-간단한-코드-설명)
 2. [코드 전문](#2-코드-전문)
 3. [message를 표시하고 싶을 경우](#3-message를-표시하고-싶은-경우)
-
+4. [로그인을 했을 경우에만 편집, 삭제를 하고싶은 경우](#4-로그인을-했을-경우에만-편집-삭제를-하고싶은-경우)
 ---
 
 참고 : [Working with forms | Django documentation | Django (djangoproject.com)](https://docs.djangoproject.com/en/4.2/topics/forms/)
@@ -371,8 +371,13 @@ def delete_post(request,id):
 {% endblock %}
 ```
 
+### 결과
 
+- 로그인 했을 때
+![login](login.isvalid.PNG)
 
+- 로그아웃 했을 때
+![logout](whenloggedout.PNG)
 
 
 
