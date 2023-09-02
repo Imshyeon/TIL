@@ -144,81 +144,188 @@
 
 <br>
 
+
 3. math
+- Q1. 매개변수로 전달받은 숫자가 소수인지 아닌지 판별
+    - 소수 : 1과 자기 자신만으로 나누어 떨어지는 1보다 큰 양의 정수.
 
-Q1. 매개변수로 전달받은 숫자가 소수인지 아닌지 판별
-- 소수 : 1과 자기 자신만으로 나누어 떨어지는 1보다 큰 양의 정수.
-![img](https://dbscthumb-phinf.pstatic.net/2765_000_373/20210318063335630_PHXLVN4C7.gif/94197_1.gif?type=m1500&wm=N)
-  
-  1.  소수의 정의에 따라서 코딩
-```python
-def is_prime(num):  # 내가 푼 부분
-    if num == 2 : return True
-    for x in range(2,num):
-        if num%x == 0:
-            return False
-    return True
-
-def is_prime_ans(num):
-    # if num==2 : return True   # 1.
-    if num % 2 == 0 and num != 2 : return   # 2. 
+        ![img](https://dbscthumb-phinf.pstatic.net/2765_000_373/20210318063335630_PHXLVN4C7.gif/94197_1.gif?type=m1500&wm=N)
     
-    # for i in range(3,num):  # 1. range(2,num)하고 위에 if를 없애도 되긴 함.. but 그래도 적어주자
-    #     if num%i==0:
-    #         return False
-    # return True
+    - 소수의 정의에 따라서 코딩
+    ```python
+    def is_prime(num):  # 내가 푼 부분
+        if num == 2 : return True
+        for x in range(2,num):
+            if num%x == 0:
+                return False
+        return True
 
-    for i in range(3,num,2):  # 2. range(2,num)하고 위에 if를 없애도 되긴 함.. but 그래도 적어주자
-        if num%i==0:
-            return False
-    return True
+    def is_prime_ans(num):
+        # if num==2 : return True   # 1.
+        if num % 2 == 0 and num != 2 : return   # 2. 
+        
+        # for i in range(3,num):  # 1. range(2,num)하고 위에 if를 없애도 되긴 함.. but 그래도 적어주자
+        #     if num%i==0:
+        #         return False
+        # return True
 
-#------
-# test.py
-import unittest
-import sys
-sys.path.append(r'C:\Users\KSH\Desktop\CODE\Algorythm\a_basic')
-from c_math import *
-from math import *
-import random
+        for i in range(3,num,2):  # 2. range(2,num)하고 위에 if를 없애도 되긴 함.. but 그래도 적어주자
+            if num%i==0:
+                return False
+        return True
 
-class TestBasic(unittest.TestCase):
-    def test_is_prime(self):
-        self.assertTrue(is_prime(18))    # 나 => 소수가 아니니까 False로 오류
-        self.assertTrue(is_prime_ans(7))    # 답1 => 소수니까 True로 ok
-```
+    #------
+    # test.py
+    import unittest
+    import sys
+    sys.path.append(r'C:\Users\KSH\Desktop\CODE\Algorythm\a_basic')
+    from c_math import *
+    from math import *
+    import random
 
-  2. 소수가 아닌 수를 생각해서 코딩(제곱근 이용)
+    class TestBasic(unittest.TestCase):
+        def test_is_prime(self):
+            self.assertTrue(is_prime(18))    # 나 => 소수가 아니니까 False로 오류
+            self.assertTrue(is_prime_ans(7))    # 답1 => 소수니까 True로 ok
+    ```
+    <br>
+
+    - 소수가 아닌 수를 생각해서 코딩(제곱근 이용)
   
-  >예시) 12 = 1 x 12 <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; 2 x 6 <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;3 x 4<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;4 x 3<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;6 x 2<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;12 x 1
-  
-  이처럼 12는 가운데를 기준으로 대칭 구조를 갖는다.
+    >예시) 12 = 1 x 12 <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; 2 x 6 <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;3 x 4<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;4 x 3<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;6 x 2<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;12 x 1
+    
+    이처럼 12는 가운데를 기준으로 대칭 구조를 갖는다.
 
+    ```python
+    from math import sqrt
+    '''
+    소수가 아닌 수를 생각해보자
+    4라는 숫자를 예를 들어보면 4는 1x4 , 2x2, 4x1로 소수가 아니다.
+    sqrt(4) = 2 이다.
+    그렇다면 for i in range(sqrt(num)+1)의 의미는 다음과 같다. : 0~3까지 for문을 반복하는데, 그 사이에 있는 i를 이용해 num을 나눴을 때 나머지가 0이라면 num은 소수가 아니다.
+    즉, sqrt를 쓴 이유는 반복의 횟수를 줄이기 위함이다.
+    '''
+    def is_prime_plus(num):
+        for i in range(2,int(sqrt(num)+1)):
+            if num % i == 0:
+                return False
+        return True
+
+    #------
+    # test.py
+    import unittest
+    import sys
+    sys.path.append(r'C:\Users\KSH\Desktop\CODE\Algorythm\a_basic')
+    from c_math import *
+    from math import *
+    import random
+
+    class TestBasic(unittest.TestCase):
+        def test_is_prime2(self):
+            self.assertTrue(is_prime_plus(7))
+    ```
+    <br>
+- Q2. 2부터 매개변수로 입력받은 값 사이에 존재하는 소수를 구해 리스트로 반환하는 함수를 작성
+    ```python
+    def prime_numbers(num):
+    prime_list=[]
+    for i in range(2,num):
+        if is_prime_plus(i):
+            prime_list.append(i)
+        
+    return prime_list
+    ```
+<br>
+
+- Q3.최대공약수
+    ```python
+    def gcd1(a, b):
+    if a > b : min = b
+    min = a
+    gcd=1
+    # for i in range(1,min+1):
+    #     if a % i == 0 and b % i == 0 :
+    #         gcd *= i
+    # return gcd
+
+    for i in range(min,0,-1):
+        if a % i == 0 and b 
+
+    # 유클리드 호제법을 활용한 최대공약수 구하기
+    # a, b 두 수가 있을 때(a>b)
+    # a를 b로 나눈 나머지는 두 수의 최대 공약수의 배수이다.
+    def gcd2(a, b): 
+        while b > 0 :
+            a, b = b, a % b        
+        return a    
+    ```
+<br>
+
+ - Q4. 최소공배수
+ ```python
+def lcm1(a, b):
+    gcdValue = gcd2(a,b)
+    # a * b / gcdVal와 같은 의미이다!
+    return gcdValue * (a / gcdValue) * (b / gcdValue)
+ ``` 
+<br>
+
+- Q5. 팩토리얼
 ```python
-from math import sqrt
-'''
-소수가 아닌 수를 생각해보자
+def factorial1(num):
+    if num < 0 : return -1
+    res = 1
+    for i in range(1, num+1):
+        res *= i
+    return res
 
-'''
-def is_prime_plus(num):
-    for i in range(2,int(sqrt(num)+1)):
-        if num % i == 0:
-            return False
-    return True
+def factorial_recursive(n): #재귀함수 사용 -> 그렇지만 파이썬에선 불추..
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial_recursive(n-1)
 
-#------
-# test.py
-import unittest
-import sys
-sys.path.append(r'C:\Users\KSH\Desktop\CODE\Algorythm\a_basic')
-from c_math import *
-from math import *
-import random
+def factorial_tail(n, result=1) : # 꼬리재귀함수
+    if n == 0:-
+        return result
+    else:
+        return factorial_tail(n-1,n*result)
 
-class TestBasic(unittest.TestCase):
-    def test_is_prime2(self):
-        self.assertTrue(is_prime_plus(7))
 ```
+<br>
+
+- Q6. 피보나치 수열
+    - 피보나치 수열 : 첫째 및 둘째 항이 1이며 그 뒤의 모든 항은 바로 앞 두 항의 합인 수열이다
+        
+        ![img](https://upload.wikimedia.org/wikipedia/commons/8/83/FibonacciBlocks.png)
+
+    ```python
+    def fibonacci(num):
+    if num < 1: return -1
+    prev, cur = 1, 1
+    for i in range(3,num+1):
+        prev, cur = cur, prev+cur
+    return cur
+
+    # 피보나치 수열 재귀함수 이용. 이렇게 재귀함수를 쓰면 안된다!
+    def fibo_recursive(n):
+    if n == 0:
+        return 0
+    elif n == 1 or n == 2 :
+        return 1
+    else:
+        return fibo_recursive(n-1) + fibo_recursive(n-2)
+    
+    def fibo_tail(n, before=0, next=1):
+        if n == 0:
+            return 0
+        elif n == 1:
+            return next
+        else:
+            return fibo_tail(n-1, next, before+next)
+    ```
+
+
+<br>
 
 # Linked List : 전통적인 방식의 List와 비교하여 공부
 1. LinkedList의 메모리 구조 : 찾을 때(Read)는 시간 복잡도가 O(0)이 된다.
