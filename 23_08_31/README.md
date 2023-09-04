@@ -327,14 +327,21 @@ def factorial_tail(n, result=1) : # 꼬리재귀함수
 
 <br>
 
-# Linked List : 전통적인 방식의 List와 비교하여 공부
+# Linked List
+1. Linked List란? 각 노드가 데이터와 포인터를 가지고 한 줄로 연결되어 있는 방식으로 데이터를 저장하는 자료구조. 노드 포인터가 다음이나 이전의 노드와의 연결을 담당한다.
+    ![linked_list](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/440px-Singly-linked-list.svg.png)
+    
 1. LinkedList의 메모리 구조 : 찾을 때(Read)는 시간 복잡도가 O(0)이 된다.
 
 2. LinkedList의 삭제 과정 : 기존의 전통적인 방식에서는 O(n)만큼의 시간이 걸린다. 하지만 LinkedList는 그냥 참조를 끊어버리면 된다. => garbage collector : 더이상 해당 객체를 참조하고 있는 변수가 없으면, 메모리에서 삭제해버림. 자연스럽게 삭제된다.
 
-* duck typing?
+* duck typing? 동적타이핑의 종류로, 객체의 변수 및 메소드의 집합이 객체의 타입을 결정하는 것을 말한다. 객체가 어떤 타입에 걸맞는 변수와 메소드를 지니면 객체를 해당 타입에 속하는 것으로 간주한다.
+
+<br>
 
 # Hash Table 
+![hash_table](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg/440px-Hash_table_3_1_1_0_1_0_0_SP.svg.png)
+
 1. Hash : 임의의 길이의 데이터를 수학적 연산을 통해 고정된 길이의 데이터로 매핑하는 함수
 2. Hash Table : 해시 함수로 얻은 해시를 키로 활용하여 index로 사용하고 해당 index에 데이터를 저장
     - 장점 : 검색이 빠르다
@@ -344,5 +351,5 @@ def factorial_tail(n, result=1) : # 꼬리재귀함수
         - Open Addressing : 충돌 발생 시 해시값이 아닌 다른 곳에 데이터 저장
 
 
-* list 컴프리핸션?
-* client, callback - template?
+* list comprehension? 리스트를 생성하는 comprehension. 예, `[x for x in range(10)]`
+* template callback 패턴
