@@ -12,7 +12,8 @@
 1. Merge Sort
 
     ![merge_sort](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)
-    **이미지 출처 : [위키백과-합병 정렬](https://ko.wikipedia.org/wiki/합병_정렬)*
+
+    *이미지 출처 : [위키백과-합병 정렬](https://ko.wikipedia.org/wiki/합병_정렬)*
 
     - 분할 : 요소가 n개인 S를 n/2개의 원소를 가진 두 개의 리스트로 분할, 더이상 분할할 수 없을 때까지 동일한 유형의 여러 하위 문제로 나눈다.
     - 정복 : 가장 작은 단위의 하위 문제를 해결하여 정복한다.
@@ -25,6 +26,7 @@
 2. Quick Sort
 
     ![quick_sort](https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)
+
     *이미지 출처 : [위키백과-퀵 정렬](https://ko.wikipedia.org/wiki/퀵_정렬)*
     * 내부정렬 : 추가적인 배열을 사용하지 않는 정렬
     - 분할 : 기준 원소를 정해서 기준 원소를 기준으로 좌우로 분할
@@ -64,16 +66,22 @@
             quicksort2(arr, low, pivotpoint -1)
             quicksort2(arr, pivotpoint+1, high)
     ```
+    <br>
+
     - 위치 바뀌기 전
+
      ![Alt text](image-2.png)
+
         1. pivotitem = 15이고, i=2까지의 값들은 피봇보다는 작은 값들이었기 때문에 i += 1 라인만 수행했다.
         2. i = 3이 되는 순간에 해당 요소는 피봇 값보다 크게 되므로 arr[j]와 피봇을 비교하는 연산 시작
         3. arr[j]는 피봇보다 작게 되므로 while을 수행하지 않고 밑의 if문으로 간다.
         4. 그림을 보면, arr[3] = 50, arr[7]=5이고 arr[7]이 arr[3]보다 값이 작음에도 불구하고 인덱스 값(위치)은 더 큰 것을 알 수 있다. 따라서 둘의 위치를 변경해주어야 정렬이 가능하다.
         5. 둘의 위치를 바꾸어 정렬한 후, 인덱스 위치 이동
 
+    <br>
 
     - 위치 바뀐 후
+
     ![Alt text](image-3.png)
 
 <br>
@@ -86,6 +94,7 @@
     2. b_datastructure/tests/e_bst_test.py : 이진탐색트리의 테스트 파일
 
     ![이진탐색트리](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/440px-Binary_search_tree.svg.png)
+    
     *이미지 출처 : [위키백과-이진탐색트리](https://ko.wikipedia.org/wiki/이진_탐색_트리)*
 
     - 이진 탐색 트리에서 가장 위에 있는 애들을 Root. 동그라미를 Node
