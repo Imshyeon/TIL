@@ -2,7 +2,10 @@
 - 분할 : 문제의 사례를 둘 이상의 충분히 작은 사례롤 분할
 - 정복 : 작은 사례를 각각 정복
 - 통합 : 필요하면, 작은 사례의 해답을 통합해 원래 사례의 해답을 도출
-- b_binary.py 참고
+- [e_devide_conqure 폴더](https://github.com/Imshyeon/Algorithm/tree/main/e_devide_conqure) 참고
+    1. a~.py : merge sort
+    2. b~.py : quick sort
+    3. c~.py : 분할정복 문제 풀이
 
 <br>
 
@@ -78,6 +81,9 @@
 # 이진탐색트리
 - 이진탐색과 연결리스트를 결합한 자료구조.
 - 이진탐색의 탐색 능력과 linked list의 추가, 삭제 능력을 함께 고려.
+- [b_datastructure 참고](https://github.com/Imshyeon/Algorithm/tree/main/b_datastructure)
+    1. b_datastructure/e_bst.py : 이진탐색 트리 구현
+    2. b_datastructure/tests/e_bst_test.py : 이진탐색트리의 테스트 파일
 
     ![이진탐색트리](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/440px-Binary_search_tree.svg.png)
     *이미지 출처 : [위키백과-이진탐색트리](https://ko.wikipedia.org/wiki/이진_탐색_트리)*
