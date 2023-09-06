@@ -90,3 +90,10 @@
     ![Alt text](image-8.png)
 
     <br>
+
+# 객체지향프로그래밍
+1. facade pattern
+- facade : 건물의 외벽
+    - 내부의 복잡한 시스템은 숨기고, 사용자에게 간단한 인터페이스를 제공
+    
+        ![facade](https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/UML_DP_Façade.png/440px-UML_DP_Façade.png)
