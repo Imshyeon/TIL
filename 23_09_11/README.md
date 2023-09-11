@@ -77,3 +77,13 @@
 1. Proxy Pattern : Proxy(대리인). 프록시 객체를 통해 기본 객체에 접근하는 패턴이다. 객체의 접근 권한을 관리할 필요가 있을 때, 기본 객체의 주기능과 부기능을 구분
 
     ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Proxy_pattern_diagram.svg/800px-Proxy_pattern_diagram.svg.png)
+
+2. [j_proxy](https://github.com/Imshyeon/DesignPattern/tree/main/j_proxy)
+- client
+  - Child.py
+  - Man.py
+  - Woman.py
+- library
+  - Developer.py
+  - ProxyDeveloper.py
+- main.py
