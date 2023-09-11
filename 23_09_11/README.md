@@ -28,3 +28,13 @@
 - client
   - ConnectionCreator.py => 커넥션을 하고 그것을 반환하는 것만 한다. 설계 외적인 클래스
 - main.py
+
+<br>
+
+# Template Callback Pattern
+1. Template Callback Pattern : Strategy Pattern의 변형으로 DI(Dependency Injection) 전략을 내부 클래스로 구현하여 매개변수로 전달하는 패턴
+
+2. [g_template_callback](https://github.com/Imshyeon/DesignPattern/tree/main/g_template_callback)
+- library
+  - DAO.py
+- main.py
