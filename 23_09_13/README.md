@@ -28,3 +28,13 @@
 2. Unstructured : Index가 없다.
 3. Casting : 데이터 타입이나 구조를 변경하는 것.
 
+<br>
+<br>
+
+# Function and Module
+1. 함수는 Processor, Memory(RAM), Disk(SSD) 중에서 기본적으로 Memory, Disk에 있다.
+  - python이 실행(execute)이 되면서 Disk에서 Memory로 올라와있을 것이다.
+  - 함수는 메모리에 올라와 있어야 실행 가능하다.
+
+2. 모듈은 기본적으로 Disk에 File로 존재한다.
+  - 이 모듈을 사용하기 위해선 메모리에 올라갈 필요가 있다.
