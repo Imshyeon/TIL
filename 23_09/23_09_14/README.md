@@ -6,7 +6,9 @@
 
 
 ## 1. 행렬
-![img](https://hkilter.com/images/7/7a/Tensors.png)
+<p align="center">
+    <img src="https://hkilter.com/images/7/7a/Tensors.png" width="700">
+</p>
 
 1. Scalar - 0D Array - Rank0 Tensor
     ```
@@ -88,3 +90,20 @@
 
 - `numpy.transpose(M1)` : M1의 전치행렬
 - `M2.transpose()` : M2의 전치행렬 == M2.T
+
+<br>
+<br>
+
+
+# Pandas
+1. 목적
+   1. **외부의 데이터를 python으로 읽어오는 역할을 한다.**
+   2. 분석, Modeling Data를 위한 전처리(Preprocessing) 기능을 제공해준다.
+
+2. pandas - DataFrame 
+   - Lable Index를 가진 2차원 구조
+   - 일반적으로 다양한 데이터 타입의 열들로 구성 (문자, 숫자형)
+  
+   1. CSV(Comma Seperated Values) : 실제로 메모장에 CSV 파일을 열어보면 , 로 데이터들이 분류되어 있다.
+      1. `.read_csv()` &rarr; type(DF1) : pandas.core.frame.DataFrame | [pandas.read_csv](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)
+      2. `.to_csv('파일명.csv', )` : CSV 파일로 저장
