@@ -96,13 +96,13 @@
 
 
 # Pandas
-1. 목적
+## 1. 목적
    1. **외부의 데이터를 python으로 읽어오는 역할을 한다.**
    2. 분석, Modeling Data를 위한 전처리(Preprocessing) 기능을 제공해준다.
 
 <br>
 
-2. pandas - DataFrame (pandas에서 읽어들어오면 DataFrame)
+## 2. pandas - DataFrame (pandas에서 읽어들어오면 DataFrame)
    - Lable Index를 가진 2차원 구조
    - 일반적으로 다양한 데이터 타입의 열들로 구성 (문자, 숫자형)
   
@@ -174,7 +174,7 @@
     
 <br>
 
-3. pandas - Series
+## 3. pandas - Series
    - Label index를 가지는 1차원 구조
    - 최소 단위 : column 하나가 시리즈 이다.
    - 일반적으로 동일한 데이터 타입으로 구성
@@ -210,15 +210,15 @@
 
 <br>
 
-4. [pandas - Visualization](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html)
+## 4. [pandas - Visualization](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html)
    * [그래프 참고](https://python-graph-gallery.com)
   
-    1. 선 그래프 : 주로 x값이 시간축으로 두고 시간의 흐름에 따른 변화를 볼 때 선 그래프를 사용한다.
-        - kind = 'line' | kind의 default는 line임
-        - style : '-','--','-.', 's-', 'o-', '^-'
-        - linewidth : 숫자
-        - color : 16진수 RGB
-        - figsize : inch | figuresize == figsize &rarr; 표의 크기
+1. 선 그래프 : 주로 x값이 시간축으로 두고 시간의 흐름에 따른 변화를 볼 때 선 그래프를 사용한다.
+    - kind = 'line' | kind의 default는 line임
+    - style : '-','--','-.', 's-', 'o-', '^-'
+    - linewidth : 숫자
+    - color : 16진수 RGB
+    - figsize : inch | figuresize == figsize &rarr; 표의 크기
          ```python
             # Height라는 시리즈와 인덱스가 같이 넘어간다.
             DF1[['Height']].plot(kind = 'line',
@@ -230,11 +230,11 @@
          ```
          ![Alt text](image.png)
 
-    2. 막대 그래프 
-        - kind = 'bar'
-        - width: 0~1
-        - rot: 0~360
-        - fontsize: 숫자
+2. 막대 그래프 
+    - kind = 'bar'
+    - width: 0~1
+    - rot: 0~360
+    - fontsize: 숫자
          ```python
             DF1[['Height', 'Weight']].plot(kind = 'bar',
                                 width = 0.5,    # width = 0 : 막대가 안보임. width = 1 : 막대끼리 붙음
@@ -244,7 +244,7 @@
          ```
          ![Alt text](image-1.png)
 
-        - kind = 'barh'
+    - kind = 'barh'
          ```python
             DF1[['Height', 'Weight']].plot(kind = 'barh',   # horizontal
                                rot = 45,
@@ -254,10 +254,10 @@
          ```
          ![Alt text](image-2.png)
 
-    3. 히스토그램
-        - kind = 'hist'
-        - bins: 구간 개수
-        - alpha: 0~1
+3. 히스토그램
+    - kind = 'hist'
+    - bins: 구간 개수
+    - alpha: 0~1
          ```python
             DF1['Height'].plot(kind = 'hist',
                    bins = 5,    # 구간을 5개로 지정한다. 구간이 짧아지면 frequency 증가. 
@@ -268,8 +268,8 @@
          ```
          ![Alt text](image-3.png)
 
-    4. 상자 그래프
-        - kind = 'box'
+4. 상자 그래프
+    - kind = 'box'
          ```python
             # 100%구간(최대값) - 75% 구간(박스 끝선) - 박스 안의 선은 50% 구간(중간값) - 25% 구간(박스 끝선) - 가장 밑에가 0% 구간(최소값)
             DF1['Height'].plot(kind = 'box',    
@@ -277,9 +277,9 @@
          ```
          ![Alt text](image-4.png)
 
-    5. 산점도(주로 연속형 변수에 사용)
-        - kind = 'scatter'
-        - s: 숫자
+5. 산점도(주로 연속형 변수에 사용)
+    - kind = 'scatter'
+    - s: 숫자
          ```python
             DF1[['Height', 'Weight']].plot(kind = 'scatter',    # series(x축) + series(y축) -> 둘이 만나는 지점에서 점이 찍힘
                                 x = 'Height',
@@ -289,8 +289,8 @@
         ```
         ![Alt text](image-5.png)
 
-    6. 파이 그래프
-        - kind = 'pie'
+6. 파이 그래프
+    - kind = 'pie'
          ```python
             DF1.BloodType.value_counts().plot(kind = 'pie', # value_counts() : 빈도 분석(주로 문자형에 사용된다) 
                                                             # -> 사실 막대그래프를 많이 쓴다. 파이 그래프는 제일 크거나 작은 부분을 강조하기 위해 씀
