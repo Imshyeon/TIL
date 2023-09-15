@@ -403,3 +403,244 @@
   TD.loc[[5], :]
   ```
   ![Alt text](image-22.png)
+
+
+# Matplotlib
+- 선 그래프
+    ```python
+    plt.figure(figsize = (10, 7))
+    plt.plot(DF.Height,
+            linewidth = 1,
+            color = 'r',
+            marker = '>',
+            linestyle = '--')
+    plt.title('Line Graph', size = 30)
+    plt.xlabel('Index', size = 20)
+    plt.ylabel('Height', size = 20)
+    plt.grid(True)
+    plt.show()
+    ```
+    ![Alt text](image-23.png)
+
+<br>
+
+- 막대 그래프
+    ```python
+    plt.figure(figsize = (10, 7))
+    plt.bar(DF.index,
+            DF.Height,
+            width = 0.4,
+            color = 'y',
+            edgecolor = 'b')
+    plt.show()
+    ```
+    ![Alt text](image-24.png)
+
+    <br>
+
+    ```python
+    plt.figure(figsize = (10, 7))
+
+    plt.bar(DF.index, DF['Height'],
+            width = 0.3, label = 'Height')
+    plt.bar(DF.index + 0.3, DF['Weight'],
+            width = 0.3, label = 'Weight')
+
+    plt.legend()
+    plt.show()
+    ```
+    ![Alt text](image-25.png)
+
+    <br>
+
+    ```python
+    plt.figure(figsize = (7, 10))
+
+    plt.barh(DF.index,
+            width = DF['Height'], height = 0.3,
+            label = 'Height')
+    plt.barh(DF.index + 0.3,
+            width = DF['Weight'], height = 0.3,
+            label = 'Weight')
+
+    plt.legend()
+    plt.show()
+    ```
+    ![Alt text](image-26.png)
+
+<br>
+
+- 히스토그램
+    ```python
+    plt.figure(figsize = (10, 7))
+    plt.hist(DF.Height,
+            bins = 5,
+            alpha = 0.5, density = False)   # density : 분포함수
+    plt.show()
+    ```
+    ![Alt text](image-27.png)
+
+<br>
+
+
+- 상자그래프
+    ```python
+    # 전체 키 분포
+    plt.figure(figsize = (10, 7))
+    plt.boxplot(DF.Height,
+                patch_artist = True)
+    plt.show()
+    ```
+    ![Alt text](image-28.png)
+
+    <br>
+
+    ```python
+    # 혈액형별 키분포
+    plt.figure(figsize = (10, 7))
+
+    plt.boxplot([DF.loc[DF['BloodType'] == 'A', 'Height'],
+                DF.loc[DF['BloodType'] == 'B', 'Height'],
+                DF.loc[DF['BloodType'] == 'O', 'Height'],
+                DF.loc[DF['BloodType'] == 'AB', 'Height']],
+                labels = ['A', 'B', 'O', 'AB'],
+                patch_artist = True,
+                showmeans = True)   # 초록색 삼각형이 평균
+
+    plt.show()
+    ```
+    ![Alt text](image-29.png)
+    - 25% ~ 75% : IQR
+    - 꼬리가 없고 o 인 애들은 이상치(Outlire)라고 함.
+      - 이상치 : 평균에 급격한 영향을 주는 값
+      - 절사평균 : 이상치 제거 후 평균 계산
+      - 꼬리가 그려지는 범위는 IQR * 1.5 이다. 이것을 넘으면 이상치이고 꼬리를 그리지 않는다.
+
+- 산점도
+    ```python
+    plt.figure(figsize = (10, 7))
+    plt.scatter(DF.Height,
+                DF.Weight,
+                marker='*',
+                s = 100,
+                c = '#d62728')
+    plt.show()
+    ```
+    ![Alt text](image-30.png)
+
+<br>
+
+- 파이 그래프
+    ```python
+    plt.figure(figsize = (10, 10))
+    plt.pie(DF.BloodType.value_counts(),
+            labels = DF.BloodType.value_counts().index,
+            autopct = '%.1f%%',
+            explode = [0.0, 0.0, 0.0, 0.05],    # 상자 사이의 거리
+            startangle = 90) # 12시 방향부터 시작하고 싶을 때
+    plt.show()
+    ```
+    ![Alt text](image-31.png)
+
+<br>
+
+- `plt.subplot()`
+```python
+fig, ax = plt.subplots(nrows = 2, ncols = 2, figsize = (6, 6), facecolor = 'tan')
+
+ax[0, 0].plot()
+ax[0, 0].set_facecolor('tomato')
+ax[0, 0].set_title('Axes_1')
+ax[0, 0].set_xticks([])
+ax[0, 0].set_yticks([])
+
+ax[0, 1].plot()
+ax[0, 1].set_facecolor('royalblue')
+ax[0, 1].set_title('Axes_2')
+ax[0, 1].set_xticks([])
+ax[0, 1].set_yticks([])
+
+ax[1, 0].plot()
+ax[1, 0].set_facecolor('limegreen')
+ax[1, 0].set_title('Axes_3')
+ax[1, 0].set_xticks([])
+ax[1, 0].set_yticks([])
+
+ax[1, 1].plot()
+ax[1, 1].set_facecolor('plum')
+ax[1, 1].set_title('Axes_4')
+ax[1, 1].set_xticks([])
+ax[1, 1].set_yticks([])
+
+plt.show()
+```
+![Alt text](image-32.png)
+
+<br>
+
+```python
+fig, ax = plt.subplots(nrows = 1, ncols = 2, figsize = (15, 5))
+
+ax[0].hist(DF.Height,
+           bins = 5, alpha = 0.3,
+           density = False)
+ax[1].hist(DF.Height,
+           bins = 5, alpha = 0.7,
+           density = True)
+
+ax[0].set_title('Histogram-1', size = 20)
+ax[1].set_title('Histogram-2', size = 20)
+
+ax[0].set_xlabel('Height', size = 15)
+ax[1].set_xlabel('Height', size = 15)
+
+ax[0].set_ylabel('Frequency', size = 15)
+ax[1].set_ylabel('Density', size = 15)
+
+plt.show()
+```
+![Alt text](image-33.png)
+
+<br>
+
+```python
+fig, ax = plt.subplots(nrows = 2, ncols = 2, figsize = (15, 10))
+
+ax[0, 0].bar(DF.index, DF['Height'], width = 0.3, label = 'Height')
+ax[0, 0].bar(DF.index + 0.3, DF['Weight'], width = 0.3, label = 'Weight')
+
+ax[0, 1].boxplot([DF.loc[DF['BloodType'] == 'A', 'Height'],
+                  DF.loc[DF['BloodType'] == 'B', 'Height'],
+                  DF.loc[DF['BloodType'] == 'O', 'Height'],
+                  DF.loc[DF['BloodType'] == 'AB', 'Height']],
+                  labels = ['A', 'B', 'O', 'AB'], patch_artist = True,
+                 showmeans = True)
+
+ax[1, 0].scatter(DF.Height, DF.Weight,
+                 marker='*', s = 100, c = '#d62728')
+
+ax[1, 1].pie(DF.BloodType.value_counts(),
+             labels = DF.BloodType.value_counts().index,
+             autopct = '%.1f%%', startangle = 90,
+             explode = [0.0, 0.0, 0.0, 0.05])
+
+ax[0, 0].legend()
+
+ax[0, 0].set_title('Bar Plot')
+ax[0, 1].set_title('Box Plot')
+ax[1, 0].set_title('Scatter Plot')
+ax[1, 1].set_title('Pie Plot')
+
+ax[0, 0].set_xlabel('Height & Weight')
+ax[0, 1].set_xlabel('Blood Type')
+ax[1, 0].set_xlabel('Height')
+ax[1, 1].set_xlabel('')
+
+ax[0, 0].set_ylabel('Frequency')
+ax[0, 1].set_ylabel('Height')
+ax[1, 0].set_ylabel('Weight')
+ax[1, 1].set_ylabel('')
+
+plt.show()
+```
+![Alt text](image-34.png)
