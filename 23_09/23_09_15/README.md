@@ -644,3 +644,185 @@ ax[1, 1].set_ylabel('')
 plt.show()
 ```
 ![Alt text](image-34.png)
+
+<br>
+
+# Seaborn
+- 선 그래프
+```python
+plt.figure(figsize = (10, 7))
+sns.lineplot(x = DF.index,
+             y = DF.Height,
+             linewidth = 1,
+             color = 'r',
+             marker = '>',
+             linestyle = '--')
+plt.title('Line Graph', size = 30)
+plt.xlabel('Index', size = 20)
+plt.ylabel('Height', size = 20)
+plt.grid(True)
+plt.show()
+```
+![Alt text](image.png)
+
+<br>
+
+- 막대 그래프
+  - 연속형 - `.barplot()`
+    ```python
+    plt.figure(figsize = (10, 7))
+    sns.barplot(data = DF,
+                x = DF.index,
+                y = 'Height')
+    plt.show()
+    ```
+    ![Alt text](image-1.png)
+  
+  - 명목형 - `.countplot()`
+    ```python
+    plt.figure(figsize = (10, 7))
+    sns.countplot(data = DF,
+                x = 'BloodType')
+    plt.show()
+    ```
+    ![Alt text](image-2.png)
+
+    <br>
+
+    ```python
+    plt.figure(figsize = (10, 7))
+    sns.countplot(data = DF,
+                x = 'BloodType',
+                hue = 'Gender')
+    plt.show()
+    ```
+    ![Alt text](image-3.png)
+
+    <br>
+
+    ```python
+    plt.figure(figsize = (7, 10))
+    sns.countplot(data = DF,
+                y = 'BloodType',
+                hue = 'Gender')
+    plt.show()
+    ```
+    ![Alt text](image-4.png)
+
+<br>
+
+- 히스토그램
+```python
+plt.figure(figsize = (10, 7))
+sns.histplot(data = DF,
+             x = 'Height',
+             bins = 5,
+             alpha = 0.3)
+plt.show()
+```
+![Alt text](image-5.png)
+
+<br>
+
+- 상자 그래프
+```python
+plt.figure(figsize = (10, 7))
+sns.boxplot(data = DF,
+            x = 'BloodType',
+            y = 'Height',
+            order = ['A', 'B', 'O', 'AB'])
+plt.show()
+```
+![Alt text](image-6.png)
+
+<br>
+
+- 산점도
+```python
+plt.figure(figsize = (10, 7))
+sns.scatterplot(data = DF,
+                x = 'Height',
+                y = 'Weight',
+                s = 50)
+plt.show()
+```
+![Alt text](image-7.png)
+
+<br>
+
+- 바이올린 그래프
+```python
+plt.figure(figsize = (10, 7))
+sns.violinplot(data = DF,
+               x = 'Gender',
+               y = 'Age')
+plt.show()
+```
+![Alt text](image-8.png)
+
+<br>
+
+- Histograms
+```python
+fig, ax = plt.subplots(nrows = 1, ncols = 2, figsize = (15, 5))
+
+sns.histplot(data = DF, x = 'Height',
+             bins = 5, alpha = 0.2,
+             kde = True, ax = ax[0])
+sns.distplot(x = DF['Height'],
+             bins = 5, kde = True, color = 'royalblue',
+             hist = False, rug = True, ax = ax[1])
+
+ax[0].set_title('Histogram-1', size = 20)
+ax[1].set_title('Histogram-2', size = 20)
+
+ax[0].set_xlabel('Height', size = 15)
+ax[1].set_xlabel('Height', size = 15)
+
+ax[0].set_ylabel('Frequency', size = 15)
+ax[1].set_ylabel('Density', size = 15)
+
+plt.show()
+```
+![Alt text](image-9.png)
+
+<br>
+
+- Multiple Plots
+```python
+fig, ax = plt.subplots(nrows = 2, ncols = 2, figsize = (15, 10))
+
+sns.barplot(data = DF, x = 'Grade', y = 'Age',
+            hue = 'Gender', ci = None, ax = ax[0, 0])
+
+sns.histplot(data = DF, x = 'Weight',
+             bins = 6, alpha = 0.3, ax = ax[0, 1])
+
+sns.boxplot(data = DF, x = 'BloodType', y = 'Height',
+            order = ['A', 'B', 'O', 'AB'], ax = ax[1, 0])
+
+sns.scatterplot(data = DF, x = 'Height', y = 'Weight',
+                hue = 'Grade', style = 'BloodType', s = 50, ax = ax[1, 1])
+
+# 'best', 'upper right', 'upper left', 'lower left', 'lower right'
+# 'right', 'center left', 'center right', 'lower center', 'upper center', 'center'
+ax[0, 0].legend(labels = ['Male','Female'], loc = 'upper left', title = 'Gender')
+
+ax[0, 0].set_title('Bar Plot')
+ax[0, 1].set_title('Histogram')
+ax[1, 0].set_title('Box Plot')
+ax[1, 1].set_title('Scatter Plot')
+
+ax[0, 0].set_xlabel('Grade')
+ax[0, 1].set_xlabel('Weight')
+ax[1, 0].set_xlabel('Blood Type')
+ax[1, 1].set_xlabel('Height')
+
+ax[0, 0].set_ylabel('Age Mean')
+ax[0, 1].set_ylabel('Frequency')
+ax[1, 0].set_ylabel('Height')
+ax[1, 1].set_ylabel('Weight')
+
+plt.show()
+```
+![Alt text](image-10.png)
