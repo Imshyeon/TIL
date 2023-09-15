@@ -106,17 +106,17 @@
    - Lable Index를 가진 2차원 구조
    - 일반적으로 다양한 데이터 타입의 열들로 구성 (문자, 숫자형)
   
-   1. CSV(Comma Seperated Values) : 실제로 메모장에 CSV 파일을 열어보면 , 로 데이터들이 분류되어 있다.
+1. CSV(Comma Seperated Values) : 실제로 메모장에 CSV 파일을 열어보면 , 로 데이터들이 분류되어 있다.
       1. `.read_csv()` &rarr; type(DF1) : pandas.core.frame.DataFrame | [pandas.read_csv](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)
       2. `.to_csv()` : CSV 파일로 저장 | [pandas.to_csv](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html#pandas.DataFrame.to_csv)
         
-    2. Excel
+2. Excel
        1. `.read_excel()` | [pandas.read_excel](https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html)
        2. `.to_excel()` | [pandas.to_excel](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html)
 
-    3. DataFrame Information
-       1. `info()` : DataFrame의 정보를 볼 수 있다. 행과 열에 대한 정보
-            ```shell
+3. DataFrame Information
+    1. `info()` : DataFrame의 정보를 볼 수 있다. 행과 열에 대한 정보
+        ```shell
                 <class 'pandas.core.frame.DataFrame'>
                 RangeIndex: 17 entries, 0 to 16
                 Data columns (total 8 columns):
@@ -132,24 +132,24 @@
                 7   Weight     17 non-null     float64
                 dtypes: float64(2), int64(2), object(4) # -> DataType summary
                 memory usage: 1.2+ KB
-            ```
-        2. `.index` : 행 정보
-        3. `.columns` : 열 정보
-        4. `.values` : (numpy) Array &rarr; 하나의 리스트 안에 문자와 숫자가 섞임. 행(record)으로 보면 문자와 숫자가 섞여있고 열(column)로 보면 섞여있지 않다. &rarr; '연산은 column 단위로 이뤄질 것이다' 를 유추 가능
+        ```
+    2. `.index` : 행 정보
+    3. `.columns` : 열 정보
+    4. `.values` : (numpy) Array &rarr; 하나의 리스트 안에 문자와 숫자가 섞임. 행(record)으로 보면 문자와 숫자가 섞여있고 열(column)로 보면 섞여있지 않다. &rarr; '연산은 column 단위로 이뤄질 것이다' 를 유추 가능
 
-    4. Function
-        1. `.head()` : 위에서 5행 출력
-        2. `.tail()` : 밑에서 5행 출력
-        3. `.sort_values()`
-            - `.sort_values() / .sort_values(ascending = True)` : 오름차순
-            - `.sort_values(ascending = False)` : 내림차순
-        4. `.describe()` : 숫자 데이터만 가지고 통계량 분석
-        5. `.mean()` : 평균
-        6. `.median()` : 중간값
-        7. `.var()` : 분산
-        8. `.std()` : 표준편차
+4. Function
+    1. `.head()` : 위에서 5행 출력
+    2. `.tail()` : 밑에서 5행 출력
+    3. `.sort_values()`
+        - `.sort_values() / .sort_values(ascending = True)` : 오름차순
+        - `.sort_values(ascending = False)` : 내림차순
+    4. `.describe()` : 숫자 데이터만 가지고 통계량 분석
+    5. `.mean()` : 평균
+    6. `.median()` : 중간값
+    7. `.var()` : 분산
+    8. `.std()` : 표준편차
 
-    5. Indexing & Slicing
+5. Indexing & Slicing
     - iloc : 보이지 않는 인덱스, 수정 불가능 &rarr; 절대값
     - loc : 보이는 인덱스, 수정 가능
         1. Label(index) 변경
