@@ -1,5 +1,5 @@
 # Machine Learning
-1. Supervised Learning(지도학습) : 타겟(답, label)이 있다.
+1. Supervised Learning(지도학습) : 타겟(답, label)이 있다.  &rarr; 예측 모델 생성
  -  Regression(수치예측)
  -  Classification(범주예측)
 <br>
@@ -8,6 +8,7 @@
 2. Unsupervised Learning(비지도학습) : 타겟(답, label)이 없다.
  - Clustering(군집, 차원축소)
 
+<br><br>
 
 ## Gradient Descent(경사 하강법)
 - 목적 : 학습(Learning, Parameter의 Update되는 순간)의 자동화
@@ -26,3 +27,22 @@
 
 - 하지만 단순하게 최소값이 하나만 있지 않다. Gradient Descent는 실제로 아래와 같이 생겼다.<br>
     <img src="https://easyai.tech/wp-content/uploads/2019/01/tiduxiajiang-1.png" width="500">
+
+<br><br>
+
+## Model Validation(모델 검증)
+모델을 사용하기에 적합한가를 확인한다. &rarr; 미래에 발생할 에러가 작아야 한다는 의미이다.
+- 여러 모델을 만들어서 어떤 모델이 더 적합한지를 평가한다.  &rarr; MSE를 이용해서 판단
+
+1. Model Capacity
+   - 모델이 데이터의 분포를 얼마나 잘 설명/표현하고 있는가?
+
+2. Training(=Learning) Error
+   - 기본적으로 학습은 Training Error를 최소화하는 방향으로 진행한다.
+   - Training Data에 Model을 적용해서 확인한 실제값과 예측값의 차이 &rarr; MSE
+
+3. Overfitting(과적합) : 학습 결과가 Training Data에만 최적화된 모델을 생성한다. 따라서 모델 생성 시 사용하지 않은 Data에서 급격한 성능 저하 발생.
+
+4. Testing Error : 예측 모델 학습 후 반드시 평가 필요
+   - Training Data : 학습(모델 생성)을 위해 제공되는 데이터
+   - Testing Data : 학습 결과를 평가(모델 평가)하기 위해 제공되는 데이터 
